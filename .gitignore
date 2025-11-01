@@ -1,0 +1,41 @@
+# ----------------------------------------------------------------------
+# GIT IGNORE: Standard Web Project Template
+# Created for a basic HTML/CSS/JS/Media project structure.
+# ----------------------------------------------------------------------
+
+# 1. DEPENDENCY DIRECTORIES
+# Ignore common package manager directories (if you ever add Node.js/npm)
+node_modules/
+bower_components/
+
+# 2. OPERATING SYSTEM & EDITOR FILES
+# Ignore standard files created by macOS, Windows, or Linux when browsing folders
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 3. ENVIRONMENT & LOGS
+# Ignore files related to build, logging, or temporary development
+/dist
+/build
+*.log
+npm-debug.log*
+
+# 4. IGNORE SPECIFIC EDITOR/IDE FILES
+# Visual Studio Code
+.vscode/
+
+# 5. GIMP & IMAGE PROCESSING FILES
+# Ignore temporary files created by GIMP, Photoshop, etc.
+*.xcf~
+*.xcf.bak
+*.psd
+*.tmp
+
+# 6. LARGE/PROCESSED MEDIA FILES
+# If we decide to use a dedicated folder for web-optimized videos, we should ignore the originals.
+# This keeps the repo lean by focusing only on the code.
+# The `media/source_videos/` folder you mentioned could be ignored entirely if the raw files are huge.
+media/source_videos/
+media/source_videos/
+# (If we decide to keep the videos in the repo, just delete the line above.)

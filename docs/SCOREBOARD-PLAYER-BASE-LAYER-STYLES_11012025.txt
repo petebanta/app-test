@@ -1,0 +1,26 @@
+SCOREBOARD BASE LAYER OVERALL STYLES:
+All responsive with font/margins/etc in relative units (ie. em) and div size and arrangement based on viewport %'s
+Small (ie. 10px) space around and between all display divs
+Rounded edges 30px radius with drop shadow on boxes and texts right/down
+All media/images in lightboxes will auto fit for centered in viewport and 100% width (so you can still see full videos, if viewport in portrait)
+
+DISPLAY DIV BASE STYLES & COLORS;
+AWAY (div id="away_score"): #2c2c2c Texts / #f6f6f6 Background
+HOME (div id="home_score"): #4f4f4f Texts / #3c3c3c Background
+INNING (div id="inning"): #e1e1e1 Texts / #5b5b5b Background
+OUTS (div id="outs"): #f6f6f6 Texts /  #2c2c2c Background
+BASES (div id="bases_display"): div background color is #03740c (this is same color as green in the base runner images, so it will look seamless when the jpg is centered in that space at larger div sizes)
+
+HEADER AND DISPLAY VALUE TEXTS STYLES;
+*Shown in em's for best fit centered left/right and top/bottom*
+ie Verdana Bold 32px for Header Texts in current pixel-perfect design mock-ups
+ie Verdana 256px for Main Texts in current pixel-perfect design mock-ups
+
+Or, in terms of relative scaling, there is a 1:8 ratio for header vs main texts inside a div/scoreboard object.
+Except for Inning and Outs displays, where there is a 1:7 ratio for header vs inning/out texts in mock-ups.
+(In demo, this shown as 224px and tighter spacing between the letters for best fit)
+
+The value displayed for OUT object will have text color styles based on the value selected as outlined below:
+Out "0" text is shown in #36c63f Green
+Out 1 text is #ffd310 Yellow
+Out 2 text is #ef3b25 Red

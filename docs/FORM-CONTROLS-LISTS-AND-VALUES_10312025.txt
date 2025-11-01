@@ -1,0 +1,44 @@
+*CONTROL PANEL OBJECTS AND FORMS*
+
+<header>AWAY SCORE
+Form with field and +/- Counter to set numeric values only from 0-99. Defaults to 0.
+Submit button sets $away_score variable, which will be used to update the score number displayed in the #away_score div
+
+<header>HOME SCORE
+Form with field and +/- Counter to set numeric values only from 0-99. Defaults to 0.
+Submit button sets $home_score variable, which will then update the score number displayed in the #home_score div
+
+<header>INNING
+Form with Drop-Drop to select one option. Defaults to B1
+Submit button sets $inning variable, which will then update the inning text displayed in the #inning div
+
+<header>OUTS
+Form with Drop-Drop to select one option. Defaults to 0
+Submit button sets $outs variable, which will then update the outs text displayed in the #outs div
+
+<header>BASES
+Form with Drop-Drop to select one option. Defaults to image of empty bases (images/baseball-field-no-runners.jpg)
+Submit button sets $bases_image variable, which will update which image is displaying in the #bases_display div
+
+<header>HITS & TEAM
+Form with Drop-Down to select one option. Defaults to null/no selection.
+Submit button sets $load_video variable, which will then be used to know which file to play in the modal lightbox
+
+<header>CALLS & PLAYS
+Form with Drop-Down to select one option. Defaults to null/no selection.
+Submit button sets $load_video variable, which will then be used to know which file to play in the modal lightbox
+
+<header>FUN & SKITS
+Form with Drop-Down to select one option. Defaults to null/no selection.
+Submit button sets $load_video variable, which will then be used to know which file to play in the modal lightbox
+
+*LIGHTBOX VIDEO PLAYER FUNCTIONALTY NOTES*
+
+Submission from one of the 3 video file forms will load a lightbox which covers 100% of viewport. 
+Background #000000 at 50% opacity, with a Cicle/X close button in upper right corner.
+
+It will load video file selected/assigned to the $load_video variable, auto play it one time, stop & then auto close the modal lightbox window.
+
+* 1st time a page loads the player that day, after it synchronizes and displays the Score, Inning, Outs and Bases Image info, it should open video lightbox and run clip "videos/fun_skits/Show-Opener.mp4" once and auto close.
+
+

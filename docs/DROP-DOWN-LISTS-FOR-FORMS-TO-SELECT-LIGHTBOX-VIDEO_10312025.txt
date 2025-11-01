@@ -1,0 +1,71 @@
+*DROP DOWN LISTS FOR FORMS TO SELECT/PLAY VIDEOS IN LIGHTBOX LAYER OVER MAIN SCOREBOARD INFO*
+
+<label for="hits_team-drop-down">HITS &amp; TEAM</label>
+<select id="hits_team-drop-down" name="hits_team-drop-down">
+<optgroup label="Team">
+  <option value="videos/hits_team/Batter-Up-Girl.mp4">Girl Up</option>
+  <option value="videos/hits_team/Batter-Up-Guy.mp4">Guy Up</option>
+  <option value="videos/hits_team/Hitting-Streak.mp4">Streak</option>
+  <option value="videos/hits_team/Rally.mp4">Rally</option>
+  <option value="videos/hits_team/RBI.mp4">RBI's</option>
+</optgroup>
+<optgroup label="Hits">
+  <option value="videos/hits_team/Single.mp4">Single</option>
+  <option value="videos/hits_team/Single-Girl.mp4">Single Girl</option>
+  <option value="videos/hits_team/Single-Girl-Short.mp4">Single Short</option>
+  <option value="videos/hits_team/Double.mp4">Double</option>
+  <option value="videos/hits_team/Triple.mp4">Triple</option>
+</optgroup>
+<optgroup label="HR">
+  <option value="videos/hits_team/Home-Run.mp4">Home Run</option>
+  <option value="videos/hits_team/Home-Run-Vert.mp4">HR Vert</option>
+  <option value="videos/hits_team/Home-Run-Short.mp4">HR Short</option>
+  <option value="videos/hits_team/Grand-Slam.mp4">Grand Slam</option>
+</optgroup>
+</select>
+
+<label for="calls-plays-drop-down">CALLS &amp; PLAYS</label>
+<select id="calls_plays-drop-down" name="calls_plays-drop-down">
+<optgroup label="Safe/Out">
+  <option value="videos/calls_plays/Safe.mp4">Safe</option>
+  <option value="videos/calls_plays/Safe_v2.mp4">Safe v2</option>
+  <option value="videos/calls_plays/Out.mp4">Out</option>
+  <option value="videos/calls_plays/Out-v2.mp4">Out v2</option>
+  <option value="videos/calls_plays/Ump-Youre-Safe.mp4">Out Safe</option>
+  <option value="videos/calls_plays/Ump-Youre-Out.mp4">Out Ump</option>
+</optgroup>
+<optgroup label="Calls">
+  <option value="videos/calls_plays/Strike-Out.mp4">Strike Out</option>
+  <option value="videos/calls_plays/Walk.mp4">Walk</option>
+  <option value="videos/calls_plays/Error.mp4">Error!</option>
+  <option value="videos/calls_plays/Extra-Bases.mp4">Extra Bases</option>
+</optgroup>
+<optgroup label="Plays">
+  <option value="videos/calls_plays/Got-Eem.mp4">Got Eem</option>
+  <option value="videos/calls_plays/Great-Play-Slide.mp4">Great Slide</option>
+  <option value="videos/calls_plays/Great-Play-Throw.mp4">Great Throw</option>
+  <option value="videos/calls_plays/Web-Gem.mp4">Web Gem</option>
+  <option value="videos/calls_plays/Web-Gem-v2.mp4">Web Gem v2</option>
+  <option value="videos/calls_plays/Web-Gem-Short.mp4">Gem Short</option>
+</optgroup>
+</select>
+
+<label for="fun-skits-drop-down">FUN &amp; SKITS</label>
+<select id="fun_skits-drop-down" name="fun_skits-drop-down">
+<optgroup label="TV Crew">
+  <option value="videos/fun_skits/Ball-Vanish-Skit.mp4">Magic Ball</option>
+  <option value="videos/fun_skits/DH-Diet-Skit.mp4">DH Diet</option>
+  <option value="videos/fun_skits/Foul-Ball-Skit.mp4">Foul Ball</option>
+  <option value="videos/fun_skits/Rowdy-Fans-Skit.mp4">Rowdy Fans</option>
+  <option value="videos/fun_skits/Slow-Runner-Skit.mp4">Slow Runner</option>
+  <option value="videos/fun_skits/Wild-Pitch-Skit.mp4">Wild itch</option>
+  <option value="videos/fun_skits/Show-Opener.mp4">Start Game</option>
+</optgroup>
+<optgroup label="Mascot">
+  <option value="videos/fun_skits/Scorezie-Cannon.mp4"></option>
+  <option value="videos/fun_skits/Scorezie-Lets-Go.mp4"></option>
+  <option value="videos/fun_skits/Scorezie-Megaphone.mp4"></option>
+  <option value="videos/fun_skits/Were-Number-1.mp4"></option>
+  <option value="videos/fun_skits/Whos-On-First.mp4"></option>
+</optgroup>
+</select>

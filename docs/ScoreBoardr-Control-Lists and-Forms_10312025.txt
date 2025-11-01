@@ -1,0 +1,109 @@
+ScoreBoardr Scoreboard/Player and Control Panel Overview of Specs, Functions, Lists and Forms
+
+~ PLAYER/CONTROLS APP TEST PAGE ORGANIZATION AND LAYOUT SPECIFICATIONS ~
+
+OVERVIEW: Test index page with responsive layouts for the player/display object and for the accompanying control panel area with 8 form-based controls within that page. Below is a high-level overview of the page sections for a control panel and a player/scoreboard to display results from making updates using the form-based controls. 
+
+There are subsequent .txt docs with more detailed information on functionality and specific details (ie. drop down lists already prepared with options relative file paths for the control panel forms). They are found in /docs
+
+In /docs, there are also jpg files of exactly how "player" graphical elements should look, be arranged and styled. I have specifically not used a lot of code for these, except to logically name some of the divs and forms to help illustrate relationships. I have provided the necessary design specifications to make the layout in CSS (ie. colors as hex values, %'s of space, arrangement of modules for landscape vs portrait viewport orientations). 
+
+I have not styled the control panel forms at all yet, and we will work on that collaboratively, once we have a base application functioning properly on my hosting environment. I have made a very basic index.html with no styling and minimal structure in the root of the depository as a start point for Gemini to build from, based on repo & prompts.
+
+* Div for the player display id="scoreboard". Auto full-width with max of 1280 px. Centered on page. Margin space below so spaced from controls below
+
+* Beneath is div id="controls" for the control panel/forms, which will match width specification of player div above.  Centered on page.
+
+* The controls div holds 8 form objects, each contains a compact form in a box with borders/rounded edges. See more docs for form names drop/down options.
+
+* All 8 section control boxes are restrained in a controls area div (bordered by box with round edgess). Control panel boxes will auto arrange, as the viewport/orientation changes. Player control forms should arrange as 2 rows/4 columns for horizontal or 4 rows/2 columns for vertical layout orientations.
+
+* Both Scoreboard/Player object div and the Control Panel object div should have a pop-out control/icon in lower right to open/escape full screen element view from the test page.
+
+* 1st time a page loads player, after it synchronizes and displays the Score, Inning, Outs and Bases Image info areas, it should open the video lightbox and run clip "videos/fun_skits/Show-Opener.mp4" once and auto close.
+
+~ 5 MAIN SCOREBOARD PRESENTATION AREAS AND CORRESPONDING CONTROL FORMS FOR CONTROL PANEL DIVS ~
+<header>AWAY SCORE
+Form Name = away_score
+Input type number with +/- spinner controls. <input type="number" id="away_score" name="away_score" min="0" max="99" step="1"> Default 0
+[Submit Button]
+Submit Button sets variable $away_score to be displayed in the scoreboard player div named #away_score 
+For now, default value for $away_header = AWAY, but later we will add user controls to set this as team name text at controls (ie. AWAY updated to TIGERS).
+
+<header>HOME SCORE
+Form Name = home_score
+Input type number with +/- spinner controls. <input type="number" id="home_score" name="home_score" min="0" max="99" step="1"> Default 0
+[Submit Button]
+Submit Button sets variable $home_score to be displayed in the scoreboard player div named #home_score
+For now, default value for $home_header = HOME, but later we will add user controls to set this as team name text at controls (ie. HOME updated to BEARS).
+
+<header>INNING
+Form Name = inning
+Drop down with all values: T1,B1,T2,B2,etc->B13. One selection only. 
+Default set to T1
+[Submit Button]
+Submit Button sets variable $inning to be displayed in the scoreboard player div named #inning
+Inning header has static value always of INNING, but styled with class inning_header (for later style controls and skins)
+
+<header>OUTS
+Form Name = outs
+Drop down with 3 values: 0, 1 or 2. One selection only. 
+Default set to 0
+[Submit Button]
+Submit Button sets variable $outs to be displayed in the scoreboard player div named #outs
+Outs header has static value always of OUTS, but styled with class outs_header (for later style controls and skins)
+
+<header>BASES (not displayed)
+Form Name = bases
+Drop down with 8 values: Each corresponds to a runners-on image in /images folder. 
+Default is 1st option (image with no runners -> baseball-field-no-runners.jpg)
+[Submit Button]
+Submit Button sets variable $bases_image to be displayed centered within the scoreboard player div named #bases_display
+
+~ 3 CONTROL FORMS FOR LIGHTBOX MEDIA DIV PRESENTATION AREA ~
+<header>HITS & TEAM
+Form Name = hits_team
+Drop-Down List of all videos for that group, corresponding to list of those video files in /videos/hits_team.
+Default is null (no video).
+Submit Button
+
+<header>CALLS & PLAYS
+Form Name = calls_plays
+Drop-Down List of all videos for that group, corresponding to list of those video files in /videos/calls_plays.
+Default is null (no video).
+Submit Button
+
+<header>FUN & SKITS
+Form Name = fun_skits
+Drop-Down List of all other videos for Mascot/TV Team, corresponding to files in /videos/fun_skits. 
+Default is null (no video).
+Submit Button
+
+~ STYLING FOR PLAYER TEXTS AND ELEMENTS ~
+
+SCOREBOARD BASE LAYER DIV's OVERALL STYLES:
+* Responsive with font/margins/etc in relative units (ie. em) and div size and arrangement based on viewport %'s
+* Small (ie. 10px) space around and between all display divs
+* Rounded edges 30px radius with drop shadow on boxes and texts right/down
+* All media/images in lightboxes will auto fit for centered in viewport and 100% width (so you can still see full videos, if viewport in portrait)
+
+DISPLAY DIV BASE STYLES & COLORS;
+AWAY (in mock-ups div id="away_score"): #2c2c2c Texts / #f6f6f6 Background
+HOME (in mock-ups div id="home_score"): #4f4f4f Texts / #3c3c3c Background
+INNING (in mock-ups div id="inning"): #e1e1e1 Texts / #5b5b5b Background
+OUTS (in mock-ups div id="outs"): #f6f6f6 Texts /  #2c2c2c Background
+BASES (in mock-ups div id="bases_display"): div background color is #03740c (this is same color as green in the base runner images, so it will look seamless when the jpg is centered in that space at larger div sizes)
+
+HEADER AND DISPLAY VALUE TEXTS STYLES;
+*Shown in em's for best fit centered left/right and top/bottom*
+ie Verdana Bold 32px for Header Texts in current pixel-perfect design mock-ups
+ie Verdana 256px for Main Texts in current pixel-perfect design mock-ups
+
+Or, in terms of relative scaling, there is a 1:8 ratio for header vs main texts inside a div/scoreboard object.
+Except for Inning and Outs displays, where there is a 1:7 ratio for header vs inning/out texts in mock-ups.
+(In demo, this shown as 224px and tighter spacing between the letters for best fit)
+
+The value displayed for OUT object will have text color styles based on the value selected as outlined below:
+Out "0" text is shown in #36c63f Green
+Out 1 text is #ffd310 Yellow
+Out 2 text is #ef3b25 Red

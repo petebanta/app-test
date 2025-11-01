@@ -1,0 +1,50 @@
+*INNING, OUTS AND BASES DROP DOWN LISTS FOR FORMS TO UPDATE SCOREBOARD DATA OBJECTS*
+
+<label for="inning-drop-down">INNING</label>
+<select id="inning-drop-down" name="inning-drop-down">
+  <option value="T1 selected">Top 1st</option>
+  <option value="B1">Bottom 1st</option>
+  <option value="T2 selected">Top 2nd</option>
+  <option value="B2">Bottom 2nd</option>
+  <option value="T3 selected">Top 3rd</option>
+  <option value="B3">Bottom 3rd</option>
+  <option value="T4 selected">Top 4th</option>
+  <option value="B4">Bottom 4th</option>
+  <option value="T5 selected">Top 5th</option>
+  <option value="B5">Bottom 5th</option>
+  <option value="T6 selected">Top 6th</option>
+  <option value="B6">Bottom 6th</option>
+  <option value="T7 selected">Top 7th</option>
+  <option value="B7">Bottom 7th</option>
+  <option value="T8 selected">Top 8th</option>
+  <option value="B8">Bottom 8th</option>
+  <option value="T9 selected">Top 9th</option>
+  <option value="B9">Bottom 9th</option>
+  <option value="T10" selected>Top 10th</option>
+  <option value="B10">Bottom 10th</option>
+  <option value="T11">Top 11th</option>
+  <option value="B11">Bottom 11th</option>
+  <option value="T12 selected">Top 12th</option>
+  <option value="B12">Bottom 12th</option>
+  <option value="T13">Top 13th</option>
+  <option value="B13">Bottom 13th</option>
+</select>
+
+<label for="outs-drop-down">OUTS</label>
+<select id="outs-drop-down" name="outs-drop-down">
+  <option value="0" selected>0 Outs</option>
+  <option value="1">1 Out</option>
+  <option value="2">2 Outs</option>
+</select>
+
+<label for="bases-drop-down">BASES</label>
+<select id="bases-drop-down" name="bases-drop-down">
+  <option value="images/baseball-field-no-runners.jpg" selected>Bases Empty</option>
+  <option value="images/baseball-field-runner-1b.jpg">1st Only</option>
+  <option value="images/baseball-field-runners-1b-2b.jpg">1st & 2nd</option>
+  <option value="images/baseball-field-runners-1b-3b.jpg">1st & 3rd</option>
+  <option value="images/baseball-field-runner-2b.jpg">2nd Only</option>
+  <option value="images/baseball-field-runners-2b-3b.jpg">2nd & 3rd</option>
+  <option value="images/baseball-field-runner-3b.jpg">3rd Only</option>
+  <option value="images/baseball-field-runners-1b-2b-3b.jpg">Bases Full</option>
+</select>
