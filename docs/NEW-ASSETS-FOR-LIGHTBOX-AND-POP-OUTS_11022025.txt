@@ -1,0 +1,9 @@
+*NEW ASSETS FOR LIGHTBOX CLOSE CONTROL AND PLAYER/CONTROL PANEL POP-OUT CONTROLS*
+
+assets/images/lightbox-close.png
+(to place in upper right corner of video lightbox, calling to close the window, if viewer wants to stop it early)
+
+assets/images/pop-out-launcher.png
+(once player/control panel are built, clicking this image will call JS which will make that section/div "pop-out" to full screen view, for maximum viewport real estate and no extra space from page/browser/etc.). 
+
+It should have an escape/close function/button in upper right corner, to escape full page view. Use assets/images/pop-back-in.png
