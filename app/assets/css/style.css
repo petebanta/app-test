@@ -1,0 +1,302 @@
+/* STYLE.CSS
+  This file styles all the HTML elements, using the
+  specifications from your css_notes.txt file.
+*/
+
+/* 1. FONT DEFINITION */
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../fonts/Orbitron/Orbitron-VariableFont_wght.TTF') format('truetype');
+}
+
+/* 2. Basic Setup & Variables */
+:root {
+    /* These are the plain, solid background colors */
+    --color-scoreboard-bg: #222; /* Dark gray for scoreboard */
+    --color-panel-bg: #f4f4f4; /* Light gray for controls */
+    
+    --color-panel-border: #ccc;
+    --color-button: #007bff;
+    --color-button-text: #ffffff;
+    
+    /* Specific colors for dynamic outs text */
+    --outs-0-color: #36c63f; /* Green */
+    --outs-1-color: #ffd310; /* Yellow */
+    --outs-2-color: #ef3b25; /* Red */
+}
+
+body {
+    font-family: Orbitron, sans-serif;
+    font-weight: bold;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: left;
+    padding: 1rem;
+    position: relative;
+}
+
+/* 3. Pop-Out Button Styles */
+.pop-out-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.pop-out-btn {
+    width: 87px;
+    height: 23px;
+    cursor: pointer;
+    padding: 2px;
+}
+
+/* .pop-out-btn:hover { } */
+
+
+/* 4. Main App Layout */
+.app-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.app-panel {
+    flex-basis: 400px;
+    flex-grow: 1;
+    border: 1px solid var(--color-panel-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+/* 5. Scoreboard Specific Styles */
+#scoreboard {
+    background-color: var(--color-scoreboard-bg);
+    color: var(--color-scoreboard-text);
+    text-align: center;
+}
+
+#scoreboard h2 {
+    border-bottom: 2px solid var(--color-panel-border);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.score-display {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.score-box {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* AWAY Score Box Color */
+#away_score {
+    background-color: #f6f6f6;
+    color: #2c2c2c;
+}
+
+/* HOME Score Box Color */
+#home_score {
+    background-color: #d3d3d3;
+    color: #4c4c4c;
+}
+
+.team-name {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.score {
+    font-size: 6rem; 
+    font-weight: bold;
+    color: var(--color-score-display);
+    font-family: 'Orbitron', 'Verdana', monospace;
+}
+
+.game-state {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.game-state-box {
+    flex-grow: 1;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* INNING Box Color */
+#inning {
+    background-color: #7c7c7c;
+    color: #d3d3d3;
+}
+
+/* OUTS Box Color */
+#outs {
+    background-color: #2c2c2c;
+    color: #f6f6f6;
+}
+
+/* BASES Box Color */
+#bases_display {
+    width: 100%;
+    height: auto;
+    margin: 20px auto 0;
+    background-color: #03740c; /* Your seamless green color */
+    border: 2px solid var(--color-panel-border);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bases_display img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
+
+
+/* 6. Control Panel Specific Styles */
+#control-panel {
+    background-color: var(--color-panel-bg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    align-content: flex-start;
+}
+
+.control-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--color-panel-border);
+    border-radius: 8px;
+    padding: 15px;
+    flex-basis: 150px;
+    flex-grow: 1;
+    flex-basis: content;
+    max-width: 300px; 
+}
+
+.control-box h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.control-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.control-box button {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.control-box button:hover {
+    opacity: 0.8;
+}
+
+.control-box select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+
+/* 7. Video Lightbox Styles */
+.hidden {
+    display: none;
+}
+
+#video-lightbox {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* CORRECTION: Set to 50% transparent black */
+    background-color: rgba(0, 0, 0, 0.5); 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+#video-player-container {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    background-color: #000; 
+    border: 3px solid #fff;
+    border-radius: 8px;
+}
+
+#main-video-player {
+    width: 100%;
+    border-radius: 8px;
+    display: block; 
+}
+
+.close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    
+    background-image: url('../images/lightbox-close.png');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-color: transparent;
+    
+    border: none;
+    border-radius: 50%; 
+    width: 35px;
+    height: 35px;
+    font-size: 0;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* 8. Accessibility Helper Class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
