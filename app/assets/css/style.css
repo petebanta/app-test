@@ -57,8 +57,8 @@ header {
 }
 
 .pop-out-btn {
-    width: 60px;
-    height: 30px;
+    width: 75px;
+    height: 20px;
     cursor: pointer;
     border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.1); /* Darker on white bg */
@@ -77,9 +77,11 @@ header {
 .app-panel {
     border: 1px solid var(--color-panel-border);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
     margin-top: 20px;
+    margin-bottom: 5px;
+    clear: both;
 }
 
 /* 6. Scoreboard Specific Styles (GRID) - NEW */
@@ -266,8 +268,8 @@ header {
 
 #video-player-container {
     position: relative;
-    width: 80%;
-    max-width: 900px;
+    width: 90%;
+    max-width: 1200px;
     background-color: #000; 
     border: 3px solid #fff;
     border-radius: 8px;
