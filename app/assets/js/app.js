@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameState = {
         homeScore: 0,
         awayScore: 0,
-        inning: 'T1', // Default based on your dropdown
+        inning: 'T1',
         outs: 0,
-        basesImage: 'assets/images/baseball-field-no-runners.jpg' // Default
+        basesImage: 'assets/images/baseball-field-no-runners.jpg'
     };
 
     // -----------------------------------------------------------------
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeScoreDisplay = document.getElementById('home-score-display');
     const awayScoreDisplay = document.getElementById('away-score-display');
     const inningDisplay = document.getElementById('inning-display');
-    const outsDisplay = document.getElementById('outs-display'); // This is the SPAN
+    const outsDisplay = document.getElementById('outs-display');
     const basesImage = document.getElementById('bases_image'); 
 
     // --- Box 1: Home Score ---
@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         basesImage.src = gameState.basesImage;
         
         // --- DYNAMIC OUTS COLOR ---
-        // Per your spec, change the color of the outs number
         switch (gameState.outs) {
             case 0:
                 outsDisplay.style.color = 'var(--outs-0-color)'; // Green
@@ -86,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 outsDisplay.style.color = 'var(--outs-2-color)'; // Red
                 break;
             default:
-                outsDisplay.style.color = 'var(--outs-0-color)'; // Default to green
+                outsDisplay.style.color = 'var(--outs-0-color)';
         }
     }
 
@@ -94,10 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function playVideo(videoSrc) {
         // Prepend "assets/" to your video paths to match the repo structure.
         const finalVideoSrc = `assets/${videoSrc}`;
-        
         mainVideoPlayer.src = finalVideoSrc;
         videoLightbox.classList.remove('hidden');
-        mainVideoPlayer.play();
+        // 'autoplay' on the video tag handles the play()
+    }
+    
+    // --- NEW FUNCTION: Close and reset the video player ---
+    function closePlayer() {
+        videoLightbox.classList.add('hidden'); 
+        mainVideoPlayer.pause(); 
+        mainVideoPlayer.src = ""; // Clear the source
     }
 
     // -----------------------------------------------------------------
@@ -168,15 +173,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Lightbox Close Button ---
-    closeLightboxBtn.addEventListener('click', () => {
-        videoLightbox.classList.add('hidden'); 
-        mainVideoPlayer.pause(); 
-        mainVideoPlayer.src = ""; // Clear the source
-    });
+    closeLightboxBtn.addEventListener('click', closePlayer);
+    
+    // --- NEW: Auto-close lightbox when video finishes ---
+    mainVideoPlayer.addEventListener('ended', closePlayer);
 
     // -----------------------------------------------------------------
     // 6. INITIALIZATION
     // -----------------------------------------------------------------
-    updateScoreboard();
+    updateScoreboard(); // This runs on load, setting the green outs color
 
 });

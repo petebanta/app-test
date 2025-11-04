@@ -9,221 +9,231 @@
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to ScoreBoard'r!</h1>
-    </header>
+    <div class="app-wrapper">
 
-<main class="app-container">
-      <section id="scoreboard" class="app-panel">
-        <div class="pop-out-container">
-            <img src="assets/images/pop-out-launcher.png" id="pop-out-scoreboard-btn" class="pop-out-btn" alt="Scoreboard Pop-out">
-        </div>
-           <div class="score-display">
-                <div id="away_score" class="score-box">
-                    <span class="team-name">AWAY</span>
-                    <span class="score" id="away-score-display">0</span>
-                </div>
-                <div id="home_score" class="score-box">
-                    <span class="team-name">HOME</span>
-                    <span class="score" id="home-score-display">0</span>
-                </div>
-            </div>
+        <header>
+            <h1>Welcome to ScoreBoard'r!</h1>
+        </header>
 
-            <div class="game-state">
-                <div id="inning" class="game-state-box">
-                    INNING <span id="inning-display">T1</span>
-                </div>
-                <div id="outs" class="game-state-box">
-                    OUTS <span id="outs-display">0</span>
-                </div>
-            </div>
-
-            <div id="bases_display">
-                <img id="bases_image" src="assets/images/baseball-field-no-runners.jpg" alt="Bases Empty">
-            </div>
-        </section>
+        <main class="app-container">
 
         <div class="pop-out-container">
             <img src="assets/images/pop-out-launcher.png" id="pop-out-controls-btn" class="pop-out-btn" alt="Controls Pop-out">
         </div>
-        <section id="control-panel" class="app-panel">
-            <div class="control-box">
-                <h3>AWAY SCORE</h3>
-                <form id="away-score-form">
-                    <button type="button" id="away-score-inc">+</button>
-                    <button type="button" id="away-score-dec">-</button>
-                </form>
-            </div>
 
-           <div class="control-box">
-                <h3>HOME SCORE</h3>
-                <form id="home-score-form">
-                    <button type="button" id="home-score-inc">+</button>
-                    <button type="button" id="home-score-dec">-</button>
-                </form>
-            </div>
+            <section id="scoreboard" class="app-panel">
 
-            <div class="control-box">
-                <h3>INNING</h3>
-                <form id="inning-form">
-                    <label for="inning-drop-down" class="sr-only">INNING</label>
-                    <select id="inning-drop-down" name="inning-drop-down">
-                      <option value="T1" selected>Top 1st</option>
-                      <option value="B1">Bottom 1st</option>
-                      <option value="T2">Top 2nd</option>
-                      <option value="B2">Bottom 2nd</option>
-                      <option value="T3">Top 3rd</option>
-                      <option value="B3">Bottom 3rd</option>
-                      <option value="T4">Top 4th</option>
-                      <option value="B4">Bottom 4th</option>
-                      <option value="T5">Top 5th</option>
-                      <option value="B5">Bottom 5th</option>
-                      <option value="T6">Top 6th</option>
-                      <option value="B6">Bottom 6th</option>
-                      <option value="T7">Top 7th</option>
-                      <option value="B7">Bottom 7th</option>
-                      <option value="T8">Top 8th</option>
-                      <option value="B8">Bottom 8th</option>
-                      <option value="T9">Top 9th</option>
-                      <option value="B9">Bottom 9th</option>
-                      <option value="T10">Top 10th</option>
-                      <option value="B10">Bottom 10th</option>
-                      <option value="T11">Top 11th</option>
-                      <option value="B11">Bottom 11th</option>
-                      <option value="T12">Top 12th</option>
-                      <option value="B12">Bottom 12th</option>
-                      <option value="T13">Top 13th</option>
-                      <option value="B13">Bottom 13th</option>
-                    </select>
-                </form>
-            </div>
+                <div id="away_score" class="score-box">
+                    <span class="team-name">AWAY</span>
+                    <span class="score" id="away-score-display">0</span>
+                </div>
+                
+                <div id="home_score" class="score-box">
+                    <span class="team-name">HOME</span>
+                    <span class="score" id="home-score-display">0</span>
+                </div>
+                
+                <div id="inning" class="game-state-box score-box">
+                    <span class="team-name">INNING</span>
+                    <span id="inning-display">T1</span>
+                </div>
+                
+                <div id="outs" class="game-state-box score-box">
+                    <span class="team-name">OUTS</span>
+                    <span id="outs-display">0</span>
+                </div>
 
-            <div class="control-box">
-                <h3>OUTS</h3>
-                <form id="outs-form">
-                    <select id="outs-select" name="outs-select">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                </form>
-            </div>
+                <div id="bases_display">
+                    <img id="bases_image" src="assets/images/baseball-field-no-runners.jpg" alt="Bases Empty">
+                </div>
+            </section>
+           
+              <div class="pop-out-container">
+              <img src="assets/images/pop-out-launcher.png" id="pop-out-scoreboard-btn" class="pop-out-btn" alt="Scoreboard Pop-out">
+              </div>
 
-            <div class="control-box">
-                <h3>BASES</h3>
-                <form id="bases-form">
-                    <select id="bases-select" name="bases-select">
-                    <option value="assets/images/baseball-field-no-runners.jpg" selected>Bases Empty</option>
-                    <option value="assets/images/baseball-field-runner-1b.jpg">1st Only</option>
-                    <option value="assets/images/baseball-field-runners-1b-2b.jpg">1st & 2nd</option>
-                    <option value="assets/images/baseball-field-runners-1b-3b.jpg">1st & 3rd</option>
-                    <option value="assets/images/baseball-field-runner-2b.jpg">2nd Only</option>
-                    <option value="assets/images/baseball-field-runners-2b-3b.jpg">2nd & 3rd</option>
-                    <option value="assets/images/baseball-field-runner-3b.jpg">3rd Only</option>
-                    <option value="assets/images/baseball-field-runners-1b-2b-3b.jpg">Bases Full</option>
-                    </select>
-                </form>
-            </div>
+             <section id="control-panel" class="app-panel">
 
-            <div class="control-box">
-                <h3>HITS & TEAMS</h3>
-                <form id="hits-teams-form">
-                    <label for="hits_team-drop-down" class="sr-only">HITS &amp; TEAM</label>
-                    <select id="hits_team-drop-down" name="hits_team-drop-down">
-                        <optgroup label="Team">
-                          <option value="videos/hits_team/Batter-Up-Girl.mp4">Girl Up</option>
-                          <option value="videos/hits_team/Batter-Up-Guy.mp4">Guy Up</option>
-                          <option value="videos/hits_team/Hitting-Streak.mp4">Streak</option>
-                          <option value="videos/hits_team/Rally.mp4">Rally</option>
-                          <option value="videos/hits_team/RBI.mp4">RBI's</option>
-                        </optgroup>
-                        <optgroup label="Hits">
-                          <option value="videos/hits_team/Single.mp4">Single</option>
-                          <option value="videos/hits_team/Single-Girl.mp4">Single Girl</option>
-                          <option value="videos/hits_team/Single-Girl-Short.mp4">Single Short</option>
-                          <option value="videos/hits_team/Double.mp4">Double</option>
-                          <option value="videos/hits_team/Triple.mp4">Triple</option>
-                        </optgroup>
-                        <optgroup label="HR">
-                          <option value="videos/hits_team/Home-Run.mp4">Home Run</option>
-                          <option value="videos/hits_team/Home-Run-Vert.mp4">HR Vert</option>
-                          <option value="videos/hits_team/Home-Run-Short.mp4">HR Short</option>
-                          <option value="videos/hits_team/Grand-Slam.mp4">Grand Slam</option>
-                        </optgroup>
-                    </select>
-                    <button type="submit">Play</button>
-                </form>
-            </div>
+                <div class="control-box">
+                    <h3>AWAY SCORE</h3>
+                    <form id="away-score-form">
+                        <button type="button" id="away-score-inc">+</button>
+                        <button type="button" id="away-score-dec">-</button>
+                    </form>
+                </div>
+                
+                <div class="control-box">
+                    <h3>HOME SCORE</h3>
+                    <form id="home-score-form">
+                        <button type="button" id="home-score-inc">+</button>
+                        <button type="button" id="home-score-dec">-</button>
+                    </form>
+                </div>
 
-            <div class="control-box">
-                <h3>CALLS & PLAYS</h3>
-                <form id="calls-plays-form">
-                    <label for="calls-plays-drop-down" class="sr-only">CALLS &amp; PLAYS</label>
-                    <select id="calls_plays-drop-down" name="calls_plays-drop-down">
-                        <optgroup label="Safe/Out">
-                          <option value="videos/calls_plays/Safe.mp4">Safe</option>
-                          <option value="videos/calls_plays/Safe_v2.mp4">Safe v2</option>
-                          <option value="videos/calls_plays/Out.mp4">Out</option>
-                          <option value="videos/calls_plays/Out-v2.mp4">Out v2</option>
-                          <option value="videos/calls_plays/Ump-Youre-Safe.mp4">Out Safe</option>
-                          <option value="videos/calls_plays/Ump-Youre-Out.mp4">Out Ump</option>
-                        </optgroup>
-                        <optgroup label="Calls">
-                          <option value="videos/calls_plays/Strike-Out.mp4">Strike Out</option>
-                          <option value="videos/calls_plays/Walk.mp4">Walk</option>
-                          <option value="videos/calls_plays/Error.mp4">Error!</option>
-                          <option value="videos/calls_plays/Extra-Bases.mp4">Extra Bases</option>
-                        </optgroup>
-                        <optgroup label="Plays">
-                          <option value="videos/calls_plays/Got-Eem.mp4">Got Eem</option>
-                          <option value="videos/calls_plays/Great-Play-Slide.mp4">Great Slide</option>
-                          <option value="videos/calls_plays/Great-Play-Throw.mp4">Great Throw</option>
-                          <option value="videos/calls_plays/Web-Gem.mp4">Web Gem</option>
-                          <option value="videos/calls_plays/Web-Gem-v2.mp4">Web Gem v2</option>
-                          <option value="videos/calls_plays/Web-Gem-Short.mp4">Gem Short</option>
-                        </optgroup>
-                    </select>
-                    <button type="submit">Play</button>
-                </form>
-            </div>
+                <div class="control-box">
+                    <h3>INNING</h3>
+                    <form id="inning-form">
+                        <label for="inning-drop-down" class="sr-only">INNING</label>
+                        <select id="inning-drop-down" name="inning-drop-down">
+                          <option value="T1" selected>Top 1st</option>
+                          <option value="B1">Bottom 1st</option>
+                          <option value="T2">Top 2nd</option>
+                          <option value="B2">Bottom 2nd</option>
+                          <option value="T3">Top 3rd</option>
+                          <option value="B3">Bottom 3rd</option>
+                          <option value="T4">Top 4th</option>
+                          <option value="B4">Bottom 4th</option>
+                          <option value="T5">Top 5th</option>
+                          <option value="B5">Bottom 5th</option>
+                          <option value="T6">Top 6th</option>
+                          <option value="B6">Bottom 6th</option>
+                          <option value="T7">Top 7th</option>
+                          <option value="B7">Bottom 7th</option>
+                          <option value="T8">Top 8th</option>
+                          <option value="B8">Bottom 8th</option>
+                          <option value="T9">Top 9th</option>
+                          <option value="B9">Bottom 9th</option>
+                          <option value="T10">Top 10th</option>
+                          <option value="B10">Bottom 10th</option>
+                          <option value="T11">Top 11th</option>
+                          <option value="B11">Bottom 11th</option>
+                          <option value="T12">Top 12th</option>
+                          <option value="B12">Bottom 12th</option>
+                          <option value="T13">Top 13th</option>
+                          <option value="B13">Bottom 13th</option>
+                        </select>
+                    </form>
+                </div>
 
-            <div class="control-box">
-                <h3>FUN & SKITS</h3>
-                <form id="fun-skits-form">
-                    <label for="fun-skits-drop-down" class="sr-only">FUN &amp; SKITS</label>
-                    <select id="fun_skits-drop-down" name="fun_skits-drop-down">
-                        <optgroup label="TV Crew">
-                          <option value="videos/fun_skits/Ball-Vanish-Skit.mp4">Magic Ball</option>
-                          <option value="videos/fun_skits/DH-Diet-Skit.mp4">DH Diet</option>
-                          <option value="videos/fun_skits/Foul-Ball-Skit.mp4">Foul Ball</option>
-                          <option value="videos/fun_skits/Rowdy-Fans-Skit.mp4">Rowdy Fans</option>
-                          <option value="videos/fun_skits/Slow-Runner-Skit.mp4">Slow Runner</option>
-                          <option value="videos/fun_skits/Wild-Pitch-Skit.mp4">Wild Pitch</option>
-                          <option value="videos/fun_skits/Show-Opener.mp4">Start Game</option>
-                        </optgroup>
-                        <optgroup label="Mascot">
-                          <option value="videos/fun_skits/Scorezie-Cannon.mp4">T-Shirt Cannon</option>
-                          <option value="videos/fun_skits/Scorezie-Lets-Go.mp4">Let's Go!</option>
-                          <option value="videos/fun_skits/Scorezie-Megaphone.mp4">Megaphone</option>
-                          <option value="videos/fun_skits/Were-Number-1.mp4">Number 1</option>
-                          <option value="videos/fun_skits/Whos-On-First.mp4">Who's on 1st</option>
-                        </optgroup>
-                    </select>
-                    <button type="submit">Play</button>
-                </form>
-            </div>
+                <div class="control-box">
+                    <h3>OUTS</h3>
+                    <form id="outs-form">
+                        <select id="outs-select" name="outs-select">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </form>
+                </div>
 
-        </section>
+                <div class="control-box">
+                    <h3>BASES</h3>
+                    <form id="bases-form">
+                        <select id="bases-select" name="bases-select">
+                            <option value="assets/images/baseball-field-no-runners.jpg">Bases Empty</option>
+                            <option value="assets/images/baseball-field-runner-1b.jpg">1st Only</option>
+                            <option value="assets/images/baseball-field-runners-1b-2b.jpg">1st & 2nd</option>
+                            <option value="assets/images/baseball-field-runners-1b-3b.jpg">1st & 3rd</option>
+                            <option value="assets/images/baseball-field-runner-2b.jpg">2nd Only</option>
+                            <option value="assets/images/baseball-field-runners-2b-3b.jpg">2nd & 3rd</option>
+                            <option value="assets/images/baseball-field-runner-3b.jpg">3rd Only</option>
+                            <option value="assets/images/baseball-field-runners-1b-2b-3b.jpg">Bases Full</option>
+                        </select>
+                    </form>
+                </div>
 
-    </main>
+                <div class="control-box">
+                    <h3>HITS &amp; TEAMS</h3>
+                    <form id="hits-teams-form">
+                        <label for="hits_team-drop-down" class="sr-only">HITS &amp; TEAM</label>
+                        <select id="hits_team-drop-down" name="hits_team-drop-down">
+                          <option value="">Select Video</option>
+                            <optgroup label="Team">
+                              <option value="videos/hits_team/Batter-Up-Girl.mp4">Girl Up</option>
+                              <option value="videos/hits_team/Batter-Up-Guy.mp4">Guy Up</option>
+                              <option value="videos/hits_team/Hitting-Streak.mp4">Streak</option>
+                              <option value="videos/hits_team/Rally.mp4">Rally</option>
+                              <option value="videos/hits_team/RBI.mp4">RBI's</option>
+                            </optgroup>
+                            <optgroup label="Hits">
+                              <option value="videos/hits_team/Single.mp4">Single</option>
+                              <option value="videos/hits_team/Single-Girl.mp4">Single Girl</option>
+                              <option value="videos/hits_team/Single-Girl-Short.mp4">Single Short</option>
+                              <option value="videos/hits_team/Double.mp4">Double</option>
+                              <option value="videos/hits_team/Triple.mp4">Triple</option>
+                            </optgroup>
+                            <optgroup label="HR">
+                              <option value="videos/hits_team/Home-Run.mp4">Home Run</option>
+                              <option value="videos/hits_team/Home-Run-Vert.mp4">HR Vert</option>
+                              <option value="videos/hits_team/Home-Run-Short.mp4">HR Short</option>
+                              <option value="videos/hits_team/Grand-Slam.mp4">Grand Slam</option>
+                            </optgroup>
+                        </select>
+                        <button type="submit">PLAY</button>
+                    </form>
+                </div>
 
-<!-- Disable light box
- <div id="video-lightbox" class="hidden">
+                <div class="control-box">
+                    <h3>CALLS &amp; PLAYS</h3>
+                    <form id="calls-plays-form">
+                        <label for="calls-plays-drop-down" class="sr-only">CALLS &amp; PLAYS</label>
+                        <select id="calls_plays-drop-down" name="calls_plays-drop-down">
+                          <option value="">Select Video</option>
+                            <optgroup label="Safe/Out">
+                              <option value="videos/calls_plays/Safe.mp4">Safe</option>
+                              <option value="videos/calls_plays/Safe-v2.mp4">Safe v2</option>
+                              <option value="videos/calls_plays/Out.mp4">Out</option>
+                              <option value="videos/calls_plays/Out-v2.mp4">Out v2</option>
+                              <option value="videos/calls_plays/Ump-Youre-Safe.mp4">Ump Safe</option>
+                              <option value="videos/calls_plays/Ump-Youre-Out.mp4">Ump Out</option>
+                            </optgroup>
+                            <optgroup label="Calls">
+                              <option value="videos/calls_plays/Strike-Out.mp4">Strike Out</option>
+                              <option value="videos/calls_plays/Walk.mp4">Walk</option>
+                              <option value="videos/calls_plays/Error.mp4">Error!</option>
+                              <option value="videos/calls_plays/Extra-Bases.mp4">Extra Bases</option>
+                            </optgroup>
+                            <optgroup label="Plays">
+                              <option value="videos/calls_plays/Got-Eem.mp4">Got Eem</option>
+                              <option value="videos/calls_plays/Great-Play-Slide.mp4">Great Slide</option>
+                              <option value="videos/calls_plays/Great-Play-Throw.mp4">Great Throw</option>
+                              <option value="videos/calls_plays/Web-Gem.mp4">Web Gem</option>
+                              <option value="videos/calls_plays/Web-Gem-v2.mp4">Web Gem v2</option>
+                              <option value="videos/calls_plays/Web-Gem-Short.mp4">Gem Short</option>
+                            </optgroup>
+                        </select>
+                        <button type="submit">PLAY</button>
+                    </form>
+                </div>
+
+                <div class="control-box">
+                    <h3>FUN &amp; SKITS</h3>
+                    <form id="fun-skits-form">
+                        <label for="fun-skits-drop-down" class="sr-only">FUN &amp; SKITS</label>
+                        <select id="fun_skits-drop-down" name="fun_skits-drop-down">
+                          <option value="">Select Video</option>
+                            <optgroup label="TV Crew">
+                              <option value="videos/fun_skits/Ball-Vanish-Skit.mp4">Magic Ball</option>
+                              <option value="videos/fun_skits/DH-Diet-Skit.mp4">DH Diet</option>
+                              <option value="videos/fun_skits/Foul-Ball-Skit.mp4">Foul Ball</option>
+                              <option value="videos/fun_skits/Rowdy-Fans-Skit.mp4">Rowdy Fans</option>
+                              <option value="videos/fun_skits/Slow-Runner-Skit.mp4">Slow Runner</option>
+                              <option value="videos/fun_skits/Wild-Pitch-Skit.mp4">Wild Pitch</option>
+                              <option value="videos/fun_skits/Show-Opener.mp4">Start Game</option>
+                            </optgroup>
+                            <optgroup label="Mascot">
+                              <option value="videos/fun_skits/Scorezie-Cannon.mp4">T-Shirt Cannon</option>
+                              <option value="videos/fun_skits/Scorezie-Lets-Go.mp4">Let's Go!</option>
+                              <option value="videos/fun_skits/Scorezie-Megaphone.mp4">Megaphone</option>
+                              <option value="videos/fun_skits/Were-Number-1.mp4">Number 1</option>
+                              <option value="videos/fun_skits/Whos-On-First.mp4">Who's on 1st</option>
+                            </optgroup>
+                        </select>
+                        <button type="submit">PLAY</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    
+    </div> 
+
+
+    <div id="video-lightbox" class="hidden">
         <div id="video-player-container">
             <video id="main-video-player" src="" autoplay></video>
-            <button id="close-lightbox-btn" class="close-btn"><image src="assets/images/lightbox-close.png" alt="Close" /></button>
+            <button id="close-lightbox-btn" class="close-btn"></button>
         </div>
     </div>
--->
+
 </body>
 </html>

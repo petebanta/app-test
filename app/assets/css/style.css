@@ -3,7 +3,7 @@
   specifications from your css_notes.txt file.
 */
 
-/* 1. FONT DEFINITION */
+/* 1. FONT DEFINITION - PRESERVED FROM YOUR REPO */
 @font-face {
     font-family: 'Orbitron';
     src: url('../fonts/Orbitron/Orbitron-VariableFont_wght.TTF') format('truetype');
@@ -25,143 +25,157 @@
     --outs-2-color: #ef3b25; /* Red */
 }
 
+/* BODY STYLES - PRESERVED FROM YOUR REPO */
 body {
     font-family: Orbitron, sans-serif;
     font-weight: bold;
     background-color: #ffffff;
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
+/* 3. Main App Layout - NEW */
+.app-wrapper {
+    max-width: 1300px; /* Max width as requested */
+    margin: 0 auto; /* Center the wrapper */
+}
+
+/* HEADER STYLES - PRESERVED FROM YOUR REPO */
 header {
     text-align: left;
     padding: 1rem;
     position: relative;
+    /* No background-color, per your file */
 }
 
-/* 3. Pop-Out Button Styles */
+/* 4. Pop-Out Button Styles - NEW */
 .pop-out-container {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 10px;
+    position: relative;
+    /* Positioned relative to app-wrapper, above the content */
+    float: right;  
+    z-index: 50;
 }
 
 .pop-out-btn {
-    width: 87px;
-    height: 23px;
+    width: 60px;
+    height: 30px;
     cursor: pointer;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1); /* Darker on white bg */
     padding: 2px;
 }
+.pop-out-btn:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
 
-/* .pop-out-btn:hover { } */
 
-
-/* 4. Main App Layout */
+/* 5. Main App Container (Holds the two panels) - NEW */
 .app-container {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    padding: 0;
 }
 
 .app-panel {
-    flex-basis: 400px;
-    flex-grow: 1;
     border: 1px solid var(--color-panel-border);
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     padding: 20px;
+    margin-top: 20px;
 }
 
-/* 5. Scoreboard Specific Styles */
+/* 6. Scoreboard Specific Styles (GRID) - NEW */
 #scoreboard {
     background-color: var(--color-scoreboard-bg);
-    color: var(--color-scoreboard-text);
+    
+    /* --- NEW GRID LAYOUT (Landscape) --- */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    
+    /* Define the grid areas */
+    grid-template-areas:
+        "away home bases bases"
+        "inning outs bases bases";
+}
+
+/* Scoreboard Box Styling - UPDATED */
+.score-box {
+    padding: 10px;
+    border-radius: 5px;
+    display: flex; /* Use flex to center label/value */
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
 }
 
-#scoreboard h2 {
-    border-bottom: 2px solid var(--color-panel-border);
-    padding-bottom: 10px;
-    margin-top: 0;
-}
-
-.score-display {
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.score-box {
-    flex-grow: 1;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-/* AWAY Score Box Color */
+/* AWAY Score Box Color - PRESERVED */
 #away_score {
     background-color: #f6f6f6;
     color: #2c2c2c;
+    grid-area: away;
 }
 
-/* HOME Score Box Color */
+/* HOME Score Box Color - UPDATED */
 #home_score {
     background-color: #d3d3d3;
     color: #4c4c4c;
+    grid-area: home;
 }
 
+/* UPDATED style for label */
 .team-name {
     display: block;
     font-size: 3rem;
     margin-bottom: 10px;
-}
-
-.score {
-    font-size: 6rem; 
     font-weight: bold;
-    color: var(--color-score-display);
-    font-family: 'Orbitron', 'Verdana', monospace;
 }
 
-.game-state {
-    display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    font-size: 3rem;
-    margin: 20px 0;
+/* PRESERVED style for score */
+.score {
+    font-size: 5rem;
+    font-weight: bold;
+    font-family: 'Orbitron', 'Verdana Bold', monospace;
+    line-height: 1;
 }
 
+/* INNING/OUTS Box Styling - UPDATED */
 .game-state-box {
-    flex-grow: 1;
-    padding: 15px;
-    border-radius: 5px;
+    font-size: 1.2rem;
 }
-
 /* INNING Box Color */
 #inning {
     background-color: #7c7c7c;
     color: #d3d3d3;
+    grid-area: inning;
+}
+#inning #inning-display {
+    font-size: 4rem;
+    font-family: 'Orbitron', 'Verdana Bold', monospace;
+    color: #d3d3d3;
+    line-height: 1;
 }
 
 /* OUTS Box Color */
 #outs {
     background-color: #2c2c2c;
     color: #f6f6f6;
+    grid-area: outs;
 }
+#outs #outs-display {
+    font-size: 4rem;
+    font-family: 'Orbitron', 'Verdana Bold', monospace;
+    line-height: 1;
+}
+
 
 /* BASES Box Color */
 #bases_display {
-    width: 100%;
-    height: auto;
-    margin: 20px auto 0;
+    grid-area: bases;
+    margin: auto 0;
+    height: 100%;
     background-color: #03740c; /* Your seamless green color */
     border: 2px solid var(--color-panel-border);
     border-radius: 4px;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -173,14 +187,13 @@ header {
 }
 
 
-/* 6. Control Panel Specific Styles */
+/* 7. Control Panel Specific Styles (GRID) - NEW */
 #control-panel {
     background-color: var(--color-panel-bg);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
     gap: 15px;
-    align-content: flex-start;
 }
 
 .control-box {
@@ -188,10 +201,6 @@ header {
     border: 1px solid var(--color-panel-border);
     border-radius: 8px;
     padding: 15px;
-    flex-basis: 150px;
-    flex-grow: 1;
-    flex-basis: content;
-    max-width: 300px; 
 }
 
 .control-box h3 {
@@ -210,6 +219,7 @@ header {
     gap: 10px;
 }
 
+/* PRESERVED your font styles for button/select */
 .control-box button {
     background-color: var(--color-button);
     color: var(--color-button-text);
@@ -218,11 +228,10 @@ header {
     padding: 8px 12px;
     font-size: 0.9rem;
     cursor: pointer;
+    font-family: Orbitron, sans-serif;
+    font-weight: bold;
 }
-
-.control-box button:hover {
-    opacity: 0.8;
-}
+.control-box button:hover { opacity: 0.8; }
 
 .control-box select {
     width: 100%;
@@ -230,11 +239,13 @@ header {
     border-radius: 4px;
     border: 1px solid #ccc;
     font-size: 0.9rem;
+    font-family: Orbitron, sans-serif;
+    font-weight: bold;
 }
 
 
-/* 7. Video Lightbox Styles */
-.hidden {
+/* 8. Video Lightbox Styles - UPDATED */
+#video-lightbox.hidden {
     display: none;
 }
 
@@ -245,8 +256,7 @@ header {
     width: 100%;
     height: 100%;
     
-    /* CORRECTION: Set to 50% transparent black */
-    background-color: rgba(0, 0, 0, 0.5); 
+    background-color: rgba(0, 0, 0, 0.5); /* 50% black */
     
     display: flex;
     justify-content: center;
@@ -288,7 +298,7 @@ header {
     z-index: 1001;
 }
 
-/* 8. Accessibility Helper Class */
+/* 9. Accessibility Helper Class */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -299,4 +309,45 @@ header {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+
+/* 10. --- NEW: Portrait/Narrow Layout (NEW BREAKPOINT) --- */
+@media (max-width: 640px) { 
+    body {
+        padding: 5px; /* Reduce padding on narrow screens */
+    }
+
+    .app-panel {
+        padding: 10px;
+    }
+    
+    /* Scoreboard Portrait Grid */
+    #scoreboard {
+        /* 2 columns, 3 rows */
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto; /* 3 rows now */
+        grid-template-areas:
+            "away home"
+            "inning outs"
+            "bases bases";
+        gap: 10px;
+    }
+
+    .score {
+        font-size: 3rem; /* Smaller font for narrow view */
+    }
+
+    .game-state-box #inning-display,
+    .game-state-box #outs-display {
+        font-size: 2rem; /* Smaller font for narrow view */
+    }
+
+    /* Control Panel Portrait Grid */
+    #control-panel {
+        /* 2 columns, 4 rows */
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
+        gap: 10px;
+    }
 }
