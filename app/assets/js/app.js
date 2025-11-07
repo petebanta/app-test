@@ -5,6 +5,85 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+ /* =================================================================
+       POP-OUT MODAL LOGIC
+    ================================================================= */
+    
+    // Get all the new elements for the pop-out modal
+    const popOutLightbox = document.getElementById('pop-out-lightbox');
+    const popOutContent = document.getElementById('pop-out-content');
+    const popOutCloseBtn = document.getElementById('pop-out-close-btn');
+    const popOutOverlay = document.getElementById('pop-out-overlay');
+    
+    // Get the pop-out trigger buttons
+    const popOutScoreboardBtn = document.getElementById('pop-out-scoreboard-btn');
+    const popOutControlsBtn = document.getElementById('pop-out-controls-btn');
+
+    /**
+     * Opens the pop-out modal and clones the target element into it.
+     * @param {string} targetElementId The ID of the element to clone (e.g., 'scoreboard')
+     */
+    function openPopOut(targetElementId) {
+      const targetElement = document.getElementById(targetElementId);
+      
+      if (!targetElement || !popOutLightbox || !popOutContent) {
+        console.error('Pop-out target or modal elements not found!');
+        return;
+      }
+      
+      // Create a deep clone of the target element.
+      // This copies all child elements and their current content (e.g., scores).
+      // It does NOT copy event listeners, so the buttons in the modal won't work
+      // (which is what we want, it's a "view-only" pop-out).
+      const clone = targetElement.cloneNode(true);
+      
+      // Clear any old content from the modal
+      popOutContent.innerHTML = '';
+      
+      // Add the new clone to the modal
+      popOutContent.appendChild(clone);
+      
+      // Show the modal
+      popOutLightbox.classList.remove('hidden');
+    }
+
+    /**
+     * Closes the pop-out modal and destroys the cloned content.
+     */
+    function closePopOut() {
+      if (!popOutLightbox || !popOutContent) return;
+      
+      // Hide the modal
+      popOutLightbox.classList.add('hidden');
+      
+      // CRITICAL: Destroy the cloned element by clearing the content.
+      // This prevents duplicate IDs from lingering in the DOM.
+      popOutContent.innerHTML = '';
+    }
+
+    // --- Event Listeners for Pop-out ---
+    
+    if (popOutScoreboardBtn) {
+      popOutScoreboardBtn.addEventListener('click', () => {
+        openPopOut('scoreboard');
+      });
+    }
+    
+    if (popOutControlsBtn) {
+      popOutControlsBtn.addEventListener('click', () => {
+        openPopOut('control-panel');
+      });
+    }
+    
+    // Close modal listeners
+    if (popOutCloseBtn) {
+      popOutCloseBtn.addEventListener('click', closePopOut);
+    }
+    
+    if (popOutOverlay) {
+      popOutOverlay.addEventListener('click', closePopOut); // Close on background click
+    }
+
     // -----------------------------------------------------------------
     // 1. STATE MANAGEMENT
     // -----------------------------------------------------------------

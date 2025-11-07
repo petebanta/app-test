@@ -1,0 +1,465 @@
+/* STYLE.CSS
+  This file styles all the HTML elements, using the
+  specifications from your css_notes.txt file.
+*/
+
+/* 1. FONT DEFINITION - PRESERVED FROM YOUR REPO */
+@font-face {
+    font-family: 'Creepster';
+    src: url('../fonts/Creepster/Creepster-Regular.TTF') format('truetype');
+}
+
+.creepster-regular {
+  font-family: "Creepster", system-ui;
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* 2. Basic Setup & Variables */
+:root {
+    /* These are the plain, solid background colors */
+    --color-scoreboard-bg: #222; /* Dark gray for scoreboard */
+    --color-panel-bg: #f4f4f4; /* Light gray for controls */
+    
+    --color-panel-border: #ccc;
+    --color-button: #007bff;
+    --color-button-text: #ffffff;
+    
+    /* Specific colors for dynamic outs text */
+    --outs-0-color: #36c63f; /* Green */
+    --outs-1-color: #ffd310; /* Yellow */
+    --outs-2-color: #ef3b25; /* Red */
+}
+
+/* BODY STYLES - PRESERVED FROM YOUR REPO */
+body {
+    font-family: Creepster, sans-serif;
+    font-weight: lighter;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 3. Main App Layout - NEW */
+.app-wrapper {
+    max-width: 1300px; /* Max width as requested */
+    margin: 0 auto; /* Center the wrapper */
+}
+
+/* HEADER STYLES - PRESERVED FROM YOUR REPO */
+header {
+    text-align: left;
+    padding: 1rem;
+    position: relative;
+    /* No background-color, per your file */
+}
+
+/* 4. Pop-Out Button Styles - NEW */
+.pop-out-container {
+    position: relative;
+    /* Positioned relative to app-wrapper, above the content */
+    float: right;  
+    z-index: 50;
+}
+
+.pop-out-btn {
+    width: 75px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1); /* Darker on white bg */
+    padding: 2px;
+}
+.pop-out-btn:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.themes-container {
+    position: relative;
+    /* Positioned relative to app-wrapper, above the content */
+    float: left; 
+    z-index: 50;
+}
+
+.themes-image {
+    width: 75px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1); /* Darker on white bg */
+    padding: 2px;
+}
+
+div.theme-link-container a {
+    padding: 5px;    
+}
+
+/* 5. Main App Container (Holds the two panels) - NEW */
+.app-container {
+    padding: 0;
+}
+
+.app-panel {
+    border: 1px solid var(--color-panel-border);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    clear: both;
+}
+
+/* 6. Scoreboard Specific Styles (GRID) - NEW */
+#scoreboard {
+    background-color: var(--color-scoreboard-bg);
+    
+    /* --- NEW GRID LAYOUT (Landscape) --- */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    
+    /* Define the grid areas */
+    grid-template-areas:
+        "away home bases bases"
+        "inning outs bases bases";
+}
+
+/* Scoreboard Box Styling - UPDATED */
+.score-box {
+    padding: 10px;
+    border-radius: 5px;
+    display: flex; /* Use flex to center label/value */
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+/* AWAY Score Box Color - PRESERVED */
+#away_score {
+    background-image: url('../images/zombie/blood-hands-bg.png');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: top;
+    background-size: contain;
+    background-color: #afb18f;
+    color: #54563e;
+    grid-area: away;
+}
+
+/* HOME Score Box Color - UPDATED */
+#home_score {
+    background-image: url('../images/zombie/blood-hands-bg.png');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: top;
+    background-size: contain;
+    background-color: #624f62;
+    color: #b7a5b1;
+    grid-area: home;
+}
+
+/* UPDATED style for label */
+.team-name {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+/* PRESERVED style for score */
+.score {
+    font-size: 5rem;
+    font-weight: normal;
+    font-family: 'Creepster', 'Verdana', monospace;
+    line-height: 1;
+}
+
+/* INNING/OUTS Box Styling - UPDATED */
+.game-state-box {
+    font-size: 1.2rem;
+}
+/* INNING Box Color */
+#inning {
+    background-image: url('../images/zombie/blood-hands-bg.png');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: top;
+    background-size: contain;
+    background-color: #b7a5b1;
+    color: #624f62;
+    grid-area: inning;
+}
+#inning #inning-display {
+    font-size: 4rem;
+    font-family: 'Creepster', 'Verdana', monospace;
+    color: #624f62;
+    line-height: 1;
+}
+
+/* OUTS Box Color */
+#outs {
+    background-image: url('../images/zombie/blood-hands-bg.png');
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: top;
+    background-size: contain;
+    background-color: #54563e;
+    color: #afb18f;
+    grid-area: outs;
+}
+#outs #outs-display {
+    font-size: 4rem;
+    font-family: 'Creepster', 'Verdana', monospace;
+    line-height: 1;
+}
+
+
+/* BASES Box Color */
+#bases_display {
+    grid-area: bases;
+    margin: auto 0;
+    height: 100%;
+    background-color: #03740c; /* Your seamless green color */
+    border: 2px solid var(--color-panel-border);
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+#bases_display img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
+
+
+/* 7. Control Panel Specific Styles (GRID) - NEW */
+#control-panel {
+    background-color: var(--color-panel-bg);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 15px;
+}
+
+.control-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--color-panel-border);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.control-box h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: normal;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.control-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* PRESERVED your font styles for button/select */
+.control-box button {
+    background-color: var(--color-button);
+    color: var(--color-button-text);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: Creepster, sans-serif;
+    font-weight: bold;
+}
+.control-box button:hover { opacity: 0.8; }
+
+.control-box select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.9rem;
+    font-family: Creepster, sans-serif;
+    font-weight: bold;
+}
+
+
+/* 8. Video Lightbox Styles - UPDATED */
+#video-lightbox.hidden {
+    display: none;
+}
+
+#video-lightbox {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(0, 0, 0, 0.5); /* 50% black */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+#video-player-container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #000; 
+    border: 3px solid #fff;
+    border-radius: 8px;
+}
+
+#main-video-player {
+    width: 100%;
+    border-radius: 8px;
+    display: block; 
+}
+
+.close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    
+    background-image: url('../images/lightbox-close.png');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-color: transparent;
+    
+    border: none;
+    border-radius: 50%; 
+    width: 35px;
+    height: 35px;
+    font-size: 0;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* 9. Pop-out Lightbox Styles */
+#pop-out-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pop-out-lightbox.hidden {
+  display: none;
+}
+
+/* Faded background overlay */
+#pop-out-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* 50% opacity white */
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* The content box that holds the clone */
+#pop-out-content-wrapper {
+  position: relative;
+  z-index: 1002;
+  width: 90%; /* 90% wide as requested */
+  max-width: 1400px; /* Set a max-width for large screens */
+  background: #0f0f0f; /* Match your app-panel background */
+  border: 1px solid #333; /* Match app-panel border */
+  border-radius: 12px; /* Match app-panel border-radius */
+  padding: 2.5rem; /* Give it some breathing room */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-height: 90vh; /* Make sure it doesn't overflow the viewport */
+  overflow-y: auto; /* Allow scrolling if content is tall */
+}
+
+/* The close button */
+#pop-out-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1003;
+  transition: transform 0.2s ease;
+}
+
+#pop-out-close-btn:hover {
+  transform: scale(1.1);
+}
+
+/* This targets the cloned .app-panel inside the pop-out */
+#pop-out-content .app-panel {
+  margin: 0; /* Remove the external margin from the original panel */
+  width: 100%; /* Ensure it fills the content box */
+}
+
+/* 9. Accessibility Helper Class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+/* 10. --- NEW: Portrait/Narrow Layout (NEW BREAKPOINT) --- */
+@media (max-width: 640px) { 
+    body {
+        padding: 5px; /* Reduce padding on narrow screens */
+    }
+
+    .app-panel {
+        padding: 10px;
+    }
+    
+    /* Scoreboard Portrait Grid */
+    #scoreboard {
+        /* 2 columns, 3 rows */
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto; /* 3 rows now */
+        grid-template-areas:
+            "away home"
+            "inning outs"
+            "bases bases";
+        gap: 10px;
+    }
+
+    .score {
+        font-size: 3rem; /* Smaller font for narrow view */
+    }
+
+    .game-state-box #inning-display,
+    .game-state-box #outs-display {
+        font-size: 2rem; /* Smaller font for narrow view */
+    }
+
+    /* Control Panel Portrait Grid */
+    #control-panel {
+        /* 2 columns, 4 rows */
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
+        gap: 10px;
+    }
+}

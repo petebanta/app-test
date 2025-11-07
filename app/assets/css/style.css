@@ -48,7 +48,7 @@ header {
     /* No background-color, per your file */
 }
 
-/* 4. Pop-Out Button Styles - NEW */
+/* 4. Pop-Out Button and Theme Area Styles - NEW */
 .pop-out-container {
     position: relative;
     /* Positioned relative to app-wrapper, above the content */
@@ -68,6 +68,25 @@ header {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.themes-container {
+    position: relative;
+    /* Positioned relative to app-wrapper, above the content */
+    float: left; 
+    z-index: 50;
+}
+
+.themes-image {
+    width: 75px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1); /* Darker on white bg */
+    padding: 2px;
+}
+
+div.theme-link-container a {
+    padding: 5px;    
+}
+
 
 /* 5. Main App Container (Holds the two panels) - NEW */
 .app-container {
@@ -79,8 +98,8 @@ header {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    margin-top: 20px;
-    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
     clear: both;
 }
 
@@ -256,10 +275,8 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    
-    background-color: rgba(0, 0, 0, 0.5); /* 50% black */
-    
+    height: 100%;    
+    background-color: rgba(0, 0, 0, 0.5); /* 50% black */   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -284,13 +301,11 @@ header {
 .close-btn {
     position: absolute;
     top: -15px;
-    right: -15px;
-    
+    right: -15px;   
     background-image: url('../images/lightbox-close.png');
     background-size: contain; 
     background-repeat: no-repeat;
-    background-color: transparent;
-    
+    background-color: transparent;  
     border: none;
     border-radius: 50%; 
     width: 35px;
@@ -298,6 +313,72 @@ header {
     font-size: 0;
     cursor: pointer;
     z-index: 1001;
+}
+
+/* 9. Pop-out Lightbox Styles */
+#pop-out-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pop-out-lightbox.hidden {
+  display: none;
+}
+
+/* Faded background overlay */
+#pop-out-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5); /* 50% opacity white */
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* The content box that holds the clone */
+#pop-out-content-wrapper {
+  position: relative;
+  z-index: 1002;
+  width: 90%; /* 90% wide as requested */
+  max-width: 1400px; /* Set a max-width for large screens */
+  background: #0f0f0f; /* Match your app-panel background */
+  border: 1px solid #333; /* Match app-panel border */
+  border-radius: 12px; /* Match app-panel border-radius */
+  padding: 2.5rem; /* Give it some breathing room */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-height: 90vh; /* Make sure it doesn't overflow the viewport */
+  overflow-y: auto; /* Allow scrolling if content is tall */
+}
+
+/* The close button */
+#pop-out-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1003;
+  transition: transform 0.2s ease;
+}
+
+#pop-out-close-btn:hover {
+  transform: scale(1.1);
+}
+
+/* This targets the cloned .app-panel inside the pop-out */
+#pop-out-content .app-panel {
+  margin: 0; /* Remove the external margin from the original panel */
+  width: 100%; /* Ensure it fills the content box */
 }
 
 /* 9. Accessibility Helper Class */
